@@ -5,8 +5,8 @@
   </welcome-file-list>
   <servlet>
     <display-name>Register Admin</display-name>
-    <servlet-name>AdminController</servlet-name>
-    <servlet-class>com.event.controller.AdminController</servlet-class>
+    <servlet-name>AdminControllers</servlet-name>
+    <servlet-class>com.event.controller.AdminControllers</servlet-class>
   </servlet>
   <servlet>
     <display-name>Register User</display-name>
@@ -14,7 +14,7 @@
     <servlet-class>com.event.controller.UserController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AdminController</servlet-name>
+    <servlet-name>AdminControllers</servlet-name>
     <url-pattern>/inputAdmin</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
