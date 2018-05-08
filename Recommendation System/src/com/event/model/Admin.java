@@ -5,9 +5,6 @@ public class Admin {
 	private String firstName;
 	private String lastName;
 	private String address;
-	private String faculty;
-	private String semester;
-	private int rollNo;
 	private String dob;
 	private String sex;
 	private String emailAddress;
@@ -22,21 +19,17 @@ public class Admin {
 	@Override
 	public String toString() {
 		return "Admin [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
-				+ ", faculty=" + faculty + ", semester=" + semester + ", rollNo=" + rollNo + ", dob=" + dob + ", sex="
-				+ sex + ", emailAddress=" + emailAddress + ", password=" + password + ", confirmPassword="
-				+ confirmPassword + ", status=" + status + "]";
+				+ ", dob=" + dob + ", sex=" + sex + ", emailAddress=" + emailAddress + ", password=" + password
+				+ ", confirmPassword=" + confirmPassword + ", status=" + status + "]";
 	}
 
-	public Admin(int id, String firstName, String lastName, String address, String faculty, String semester, int rollNo,
-			String dob, String sex, String emailAddress, String password, String confirmPassword, int status) {
+	public Admin(int id, String firstName, String lastName, String address, String dob, String sex, String emailAddress,
+			String password, String confirmPassword, int status) {
 		
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
-		this.faculty = faculty;
-		this.semester = semester;
-		this.rollNo = rollNo;
 		this.dob = dob;
 		this.sex = sex;
 		this.emailAddress = emailAddress;
@@ -75,30 +68,6 @@ public class Admin {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public String getFaculty() {
-		return faculty;
-	}
-
-	public void setFaculty(String faculty) {
-		this.faculty = faculty;
-	}
-
-	public String getSemester() {
-		return semester;
-	}
-
-	public void setSemester(String semester) {
-		this.semester = semester;
-	}
-
-	public int getRollNo() {
-		return rollNo;
-	}
-
-	public void setRollNo(int rollNo) {
-		this.rollNo = rollNo;
 	}
 
 	public String getDob() {
@@ -149,8 +118,7 @@ public class Admin {
 		this.status = status;
 	}
 	
-	
-	
+		
 	
 
 }

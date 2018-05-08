@@ -2,6 +2,8 @@ package com.event.daoImpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import com.event.dao.UserDAO;
 import com.event.dbutils.MySqlConnector;
 import com.event.model.User;
@@ -36,32 +38,101 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public int checkAuthenticate(User user) {
-		
-		return 0;
-	}
+		int authenticate=0;
+		Connection connection=MySqlConnector.connectToDB();
+		String sql="SELECT id FROM tbl_user WHERE email_address=? AND password=? AND status='1'";
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setString(1,user.getEmailAddress());
+			preparedStatement.setString(2, user.getPassword());
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				authenticate=rs.getInt("id");
+			}
+		} catch (SQLException exp) {
+			System.out.println("ERROR:Authentication"+exp);
+		}
 
+		return authenticate;
+	}
+	
 	@Override
 	public String getuserName(int id) {
-		
-		return null;
+		String userName="";
+		Connection connection=MySqlConnector.connectToDB();
+		String sql="SELECT firstName,lastName FROM tbl_user WHERE id=?";
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				userName=rs.getString("firstName");
+				userName+=""+rs.getString("lastName");
+			}
+		} catch (Exception e) {
+			System.out.println("ERROR: getting username"+e);
+		}
+
+		return userName;
 	}
 
 	@Override
 	public String getuserAddress(int id) {
-		
-		return null;
+		String userAddress="";
+		Connection connection=MySqlConnector.connectToDB();
+		String sql="SELECT address FROM tbl_user WHERE id=?";
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				userAddress=rs.getString("address");
+			}
+
+		} catch (Exception e) {
+			System.out.println("ERROR:Extraction Address"+e);
+		}
+		return userAddress;
 	}
 
 	@Override
 	public String getuserFaculty(int id) {
-		
-		return null;
+		String userFaculty="";
+		Connection connection=MySqlConnector.connectToDB();
+		String sql="SELECT faculty FROM tbl_user WHERE id=?";
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				userFaculty=rs.getString("faculty");
+
+			}
+		} catch (Exception e) {
+			System.out.println("ERROR: getting username"+e);
+		}
+
+		return userFaculty;
 	}
 
 	@Override
 	public String getusersemester(int id) {
-		
-		return null;
+		String userSemester="";
+		Connection connection=MySqlConnector.connectToDB();
+		String sql="SELECT semester FROM tbl_user WHERE id=?";
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				userSemester=rs.getString("firstName");
+
+			}
+		} catch (Exception e) {
+			System.out.println("ERROR: getting username"+e);
+		}
+
+		return userSemester;
 	}
 
-}
+	}
