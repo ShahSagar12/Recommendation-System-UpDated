@@ -14,7 +14,7 @@ import com.event.serviceImpl.AdminServiceImpl;
 
 
 
-@WebServlet("/AdminControllers")
+
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
