@@ -40,10 +40,13 @@ Sex</td>
   <select class="form-control" id="sel1" name="sex">
     <option>Male</option>
     <option>Female</option>
-    <option>Others</option>
-    
+    <option>Others</option>    
   </select>
 </div> </td>
+</tr>
+<tr>
+<td><h3>Information to be entered by User Only</h3><hr>
+</td>
 </tr>
 <tr>
 <td>
@@ -74,6 +77,10 @@ Rollno:</td>
 <td> <input type="text"   name="rollNo" id="rollNo" class="responsive"/></td>
 </tr>
 <tr>
+<td><hr>
+</td>
+</tr>
+<tr>
 <td>
 E-mail Address</td>
 <td> <input type="email"   name="emailAddress" id="emailAddress" class="responsive"/></td>
@@ -90,7 +97,7 @@ Confirm Password</td>
 </tr>
 <tr>
 <td>
-<input type="submit" value="Register As User" name="userRegister" id="userRegister" onclick="form.action='UserController'" class="responsive"/></td>
+<input type="submit" value="Register As User" name="userRegister" id="userRegister" onclick="form.action='inputUser'" class="responsive"/></td>
 <td><input type="submit" value="Register As Admin" name="adminRegister" id="adminRegister" onclick="form.action='inputAdmin'" class="responsive"/></td>
 </tr>
 

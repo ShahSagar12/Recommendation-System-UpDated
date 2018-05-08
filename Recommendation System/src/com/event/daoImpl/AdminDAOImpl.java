@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import com.event.DButils.MySQLConnector;
 import com.event.dao.AdminDAO;
 import com.event.dbutils.MySqlConnector;
 import com.event.model.Admin;
@@ -16,7 +14,7 @@ public class AdminDAOImpl implements AdminDAO{
 	public int register(Admin admin) {
 		int registered=0;
 		Connection connection=MySqlConnector.connectToDB();
-		String sql="INSERT INTO tbl_user(firstName,lastName,address,dob,sex,emailAddress,password, confirmPassword,status) VALUES (?,?,?,?,?,?,?,?,?)";
+		String sql="INSERT INTO tbl_admin(firstName,lastName,address,dob,sex,emailAddress,password, confirmPassword,status) VALUES (?,?,?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement preparedStatement=connection.prepareStatement(sql);
 			preparedStatement.setString(1, admin.getFirstName());
@@ -80,7 +78,7 @@ public class AdminDAOImpl implements AdminDAO{
 	public String getuserAddress(int id) {
 		String userAddress="";
 		Connection connection=MySqlConnector.connectToDB();
-		String sql="SELECT address FROM tbl_user WHERE id=?";
+		String sql="SELECT address FROM tbl_admin WHERE id=?";
 		try {
 			PreparedStatement preparedStatement=connection.prepareStatement(sql);
 			preparedStatement.setInt(1, id);
