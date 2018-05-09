@@ -5,8 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Signup</title>
-<link href="assets/css/bootstrap.min.css" type="text/css"
+<link href="Assets/css/bootstrap.min.css" type="text/css"
 	rel="stylesheet" />
+	<link href="Assets/style.css" rel="stylesheet">
+<link href="Assets/css/responsive.css" rel="stylesheet">
 </head>
 <body>
 <h2>Sign Up</h2>
