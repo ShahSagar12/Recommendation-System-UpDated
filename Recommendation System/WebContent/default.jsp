@@ -9,18 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-
 <title>Colorlib App - App Landing Page</title>
-
-
 <link rel="icon" href="Assets/img/core-img/favicon.ico">
-
-
 <link href="Assets/style.css" rel="stylesheet">
-
-
 <link href="Assets/css/responsive.css" rel="stylesheet">
 </head>
 <body>
@@ -37,7 +28,6 @@
 								aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
 							</button>
-
 							<div class="collapse navbar-collapse" id="ca-navbar">
 								<ul class="navbar-nav ml-auto" id="nav">
 									<li class="nav-item active"><a class="nav-link"
@@ -45,16 +35,20 @@
 									<li class="nav-item"><a class="nav-link" href="#about">Profile</a></li>
 									<li class="nav-item"><a class="nav-link" href="#features">Event</a></li>
 								</ul>
-								<div class="sing-up-button d-lg-none">
-									<a href="#">Signup/Login</a>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<div class="col-12 col-lg-2 pull-left">
+									<div class="sing-up-button d-none d-lg-block pull-left">
+										<a href="Signup.jsp">Signup</a>
+									</div>
 								</div>
+								<div class="col-12 col-lg-2 pull-left">
+									<div class="sing-up-button d-none d-lg-block pull-left">
+										<a href="Login.jsp">Login</a>
+									</div>
+								</div>
+
 							</div>
 						</nav>
-					</div>
-				</div>
-				<div class="col-12 col-lg-2">
-					<div class="sing-up-button d-none d-lg-block">
-						<a href="#">Signup/Login</a>
 					</div>
 				</div>
 			</div>
