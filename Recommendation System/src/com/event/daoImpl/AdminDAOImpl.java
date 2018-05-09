@@ -14,7 +14,7 @@ public class AdminDAOImpl implements AdminDAO{
 	public int register(Admin admin) {
 		int registered=0;
 		Connection connection=MySqlConnector.connectToDB();
-		String sql="INSERT INTO tbl_admin(firstName,lastName,address,dob,sex,emailAddress,password, confirmPassword,status) VALUES (?,?,?,?,?,?,?,?,?)";
+		String sql="INSERT INTO tbl_admin(firstName,lastName,address,dob,sex,emailAddress,password,confirmPassword,status) VALUES (?,?,?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement preparedStatement=connection.prepareStatement(sql);
 			preparedStatement.setString(1, admin.getFirstName());
