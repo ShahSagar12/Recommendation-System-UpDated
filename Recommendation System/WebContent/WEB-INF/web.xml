@@ -8,6 +8,14 @@
     <servlet-name>AdminControllers</servlet-name>
     <servlet-class>com.event.controller.AdminControllers</servlet-class>
   </servlet>
+  
+  <servlet>
+    <display-name>Register Event</display-name>
+    <servlet-name>EventController</servlet-name>
+    <servlet-class>com.event.controller.EventController</servlet-class>
+  </servlet>
+  
+  
   <servlet>
     <display-name>Register User</display-name>
     <servlet-name>UserController</servlet-name>
@@ -17,6 +25,13 @@
     <servlet-name>AdminControllers</servlet-name>
     <url-pattern>/inputAdmin</url-pattern>
   </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>EventController</servlet-name>
+    <url-pattern>/addEvent</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet-mapping>
     <servlet-name>UserController</servlet-name>
     <url-pattern>/inputUser</url-pattern>
