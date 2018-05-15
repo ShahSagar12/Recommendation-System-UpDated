@@ -43,9 +43,12 @@ public class EventController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Event event = new Event();
-		HttpSession session = request.getSession();
-		String id =session.getAttribute("id").toString();
-		event.setUserId(Integer.parseInt(id));
+		String eventName=request.getParameter("eventName");
+		System.out.println("Event Name"+eventName);
+//		HttpSession session = request.getSession();
+//		String id =session.getAttribute("id").toString();
+//		System.out.println(""+Integer.parseInt(id));
+//		event.setUserId(Integer.parseInt(id));
 		event.setEventName(request.getParameter("eventName"));
 		event.setEventAddress(request.getParameter("eventAddress"));
 		event.setEventNotice(request.getParameter("eventNotice"));

@@ -19,13 +19,13 @@
 			    		<h3 class="panel-title">Add Your Event</h3>
 			 			</div>
 			 			<div class="panel-body">
-			    		<form role="form">
+			    		<form role="form" method="post">
 
 			    			<div class="form-group">
 			    				<input type="text" name="eventName" id="eventName" class="form-control input-sm" placeholder="Name of Event">
 			    			</div>
 
-			    			<div class="row">
+			    			<%-- <div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-7">
 			    					<div class="form-group">
 			    						<input type="date" name="eventDate" id="eventDate" class="form-control input-sm" placeholder="Date of Event">
@@ -36,7 +36,7 @@
 			    						<input type="time" name="eventTime" id="eventTime" class="form-control input-sm" placeholder="Time of Event">
 			    					</div>
 			    				</div>
-			    			</div>
+			    			</div>   --%>
 			    			<div class="form-group">
 			    			
 			    				<textarea  name="eventNotice" id="eventNotice" class="form-control input-sm" placeholder="Notices:" row="5"></textarea>

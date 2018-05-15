@@ -18,10 +18,10 @@ public class EventDAOImpl implements EventDAO{
 	@Override
 	public int save(Event event) {
 		int result =0;
-		Connection conn = MySqlConnector.connectToDB();
+		Connection connection = MySqlConnector.connectToDB();
 		String sql="INSERT INTO tbl_event(userId,eventName,eventDate,eventTime,eventAddress,eventNotice,status) VALUES(?,?,?,?,?,?,?)";
 		try{
-		PreparedStatement ps	 = conn.prepareStatement(sql);
+		PreparedStatement ps= connection.prepareStatement(sql);
 		ps.setInt(1, event.getUserId());
 		ps.setString(2, event.getEventName());
 		ps.setString(3, (event.getEventdate().toString()));
@@ -40,7 +40,7 @@ public class EventDAOImpl implements EventDAO{
 	public List<Event> list() {
 		List<Event> allEvent = new ArrayList<>();
 		Connection conn = MySqlConnector.connectToDB();
-		String sql="SELECT * FROM blog_posts ORDER BY id DESC";
+		String sql="SELECT * FROM tbl_event ORDER BY id DESC";
 		try{
 			Statement statement = conn.createStatement();
 			ResultSet rs = statement.executeQuery(sql);
@@ -90,7 +90,7 @@ public class EventDAOImpl implements EventDAO{
 	public int update(Event event) {
 		int result =0;
 		Connection conn = MySqlConnector.connectToDB();
-		String sql="UPDATE tbl_event SET event=?,status=? WHERE id=?";
+		String sql="UPDATE tbl_event SET eventName=?,status=? WHERE id=?";
 		try{
 		PreparedStatement ps	 = conn.prepareStatement(sql);
 		ps.setString(1, event.getEventName());		
@@ -141,7 +141,7 @@ public class EventDAOImpl implements EventDAO{
 				allEventPostByUserId.add(event);
 			}
 		}catch(Exception e){
-			System.out.println("BLOG READING BY USER ID: "+e);
+			System.out.println("Event READING BY USER ID: "+e);
 		}
 
 		return allEventPostByUserId;
