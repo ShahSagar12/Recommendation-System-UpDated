@@ -37,7 +37,7 @@ public class AdminDAOImpl implements AdminDAO{
 	public int checkAuthenticate(Admin admin) {
 		int authenticate=0;
 		Connection connection=MySqlConnector.connectToDB();
-		String sql="SELECT id FROM tbl_admin WHERE email_address=? AND password=? AND status='1'";
+		String sql="SELECT id FROM tbl_admin WHERE emailAddress=? AND password=? AND status='1'";
 		try {
 			PreparedStatement preparedStatement=connection.prepareStatement(sql);
 			preparedStatement.setString(1,admin.getEmailAddress());

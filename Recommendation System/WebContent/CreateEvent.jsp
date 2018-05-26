@@ -5,17 +5,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>CreateEvent</title>
-<script src="Assets/js/bootstrap.min.js" /></script>
+
 <link rel="stylesheet" href="Assets/css/new.css" type="text/css"/>
 <link rel="stylesheet" href="Assets/css/bootstrap.min.css" type="text/css"/>
+<script src="Assets/js/bootstrap.min.js" /></script>
 <script src="Assets/js/jquery-2.2.4.min.js" /></script>
 </head>
 <body>
 <div class="container">
+<jsp:include page="header.jsp" />
+</div>
+<div class="container">
+
         <div class="row centered-form">
+        
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
         	<div class="panel panel-default">
         		<div class="panel-heading">
+        		
 			    		<h3 class="panel-title">Add Your Event</h3>
 			 			</div>
 			 			<div class="panel-body">
@@ -55,6 +62,9 @@
     		</div>
     	</div>
     </div>
+    <div class="container">
+<jsp:include page="footer.jsp" />
+</div>
 
 </body>
 </html>

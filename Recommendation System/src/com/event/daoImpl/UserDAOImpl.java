@@ -40,7 +40,7 @@ public class UserDAOImpl implements UserDAO{
 	public int checkAuthenticate(User user) {
 		int authenticate=0;
 		Connection connection=MySqlConnector.connectToDB();
-		String sql="SELECT id FROM tbl_user WHERE email_address=? AND password=? AND status='1'";
+		String sql="SELECT id FROM tbl_user WHERE emailAddress=? AND password=? AND status='1'";
 		try {
 			PreparedStatement preparedStatement=connection.prepareStatement(sql);
 			preparedStatement.setString(1,user.getEmailAddress());
@@ -49,7 +49,7 @@ public class UserDAOImpl implements UserDAO{
 			while(rs.next()) {
 				authenticate=rs.getInt("id");
 			}
-		} catch (SQLException exp) {
+		} catch (Exception exp) {
 			System.out.println("ERROR:Authentication"+exp);
 		}
 

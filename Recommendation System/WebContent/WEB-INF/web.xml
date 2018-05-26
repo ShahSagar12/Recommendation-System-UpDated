@@ -1,41 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <element>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <welcome-file-list>
-    <welcome-file>Signup.jsp</welcome-file>
-  </welcome-file-list>
-  <servlet>
-    <display-name>Register Admin</display-name>
-    <servlet-name>AdminControllers</servlet-name>
-    <servlet-class>com.event.controller.AdminControllers</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <display-name>Register Event</display-name>
-    <servlet-name>EventController</servlet-name>
-    <servlet-class>com.event.controller.EventController</servlet-class>
-  </servlet>
-  
-  
-  <servlet>
-    <display-name>Register User</display-name>
-    <servlet-name>UserController</servlet-name>
-    <servlet-class>com.event.controller.UserController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AdminControllers</servlet-name>
-    <url-pattern>/inputAdmin</url-pattern>
-  </servlet-mapping>
-  
-   <servlet-mapping>
-    <servlet-name>EventController</servlet-name>
-    <url-pattern>/addEvent</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet-mapping>
-    <servlet-name>UserController</servlet-name>
-    <url-pattern>/inputUser</url-pattern>
-  </servlet-mapping>
+<web-app>
+
+<servlet>
+<servlet-name>UserController</servlet-name>
+<servlet-class>com.event.controller.UserController</servlet-class>
+</servlet>
+
+<servlet>
+<servlet-name>AdminController</servlet-name>
+<servlet-class>com.event.controller.AdminController</servlet-class>
+</servlet>
+
+<servlet>
+<servlet-name>EventController</servlet-name>
+<servlet-class>com.event.controller.EventController</servlet-class>
+</servlet>
+
+<servlet>
+<servlet-name>LoginController</servlet-name>
+<servlet-class>com.event.controller.LoginController</servlet-class>
+</servlet>
+
+<servlet>
+<servlet-name>LoginControllerAdmin</servlet-name>
+<servlet-class>com.event.controller.LoginControllerAdmin</servlet-class>
+</servlet>
+
+<servlet>
+<servlet-name>LogoutController</servlet-name>
+<servlet-class>com.event.controller.LogoutController</servlet-class>
+</servlet>
+
+
+
+<servlet-mapping>
+<servlet-name>EventController</servlet-name>
+<url-pattern>/registerEvent</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>AdminController</servlet-name>
+<url-pattern>/inputAdmin</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>UserController</servlet-name>
+<url-pattern>/inputUser</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>UserController</servlet-name>
+<url-pattern>/inputUser</url-pattern>
+</servlet-mapping>
+
+
+
+<servlet-mapping>
+<servlet-name>LogoutController</servlet-name>
+<url-pattern>/logout</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>LoginControllerAdmin</servlet-name>
+<url-pattern>/loginAdmin</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>LoginController</servlet-name>
+<url-pattern>/loginUser</url-pattern>
+</servlet-mapping>
+
+<welcome-file-list>
+<welcome-file>default.jsp</welcome-file>
+</welcome-file-list>
 </web-app>
 </element>

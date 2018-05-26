@@ -9,57 +9,26 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Colorlib App - App Landing Page</title>
-<link rel="icon" href="Assets/img/core-img/favicon.ico">
-<link href="Assets/style.css" rel="stylesheet">
-<link href="Assets/css/responsive.css" rel="stylesheet">
+<title>default</title>
+<link rel="stylesheet" href="Assets/css/new.css" type="text/css" />
+<link rel="stylesheet" href="Assets/css/bootstrap.min.css"
+	type="text/css" />
+<script src="Assets/js/bootstrap.min.js" /></script>
+<script src="Assets/js/jquery-2.2.4.min.js" /></script>
 </head>
 <body>
-	<header class="header_area animated">
-		<div class="container-fluid">
-			<div class="row align-items-center">
-				<div class="col-12 col-lg-10">
-					<div class="menu_area">
-						<nav class="navbar navbar-expand-lg navbar-light">
-							<a class="navbar-brand" href="#">Event</a>
-							<button class="navbar-toggler" type="button"
-								data-toggle="collapse" data-target="#ca-navbar"
-								aria-controls="ca-navbar" aria-expanded="false"
-								aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"></span>
-							</button>
-							<div class="collapse navbar-collapse" id="ca-navbar">
-								<ul class="navbar-nav ml-auto" id="nav">
-									<li class="nav-item active"><a class="nav-link"
-										href="#home">Home</a></li>
-									<li class="nav-item"><a class="nav-link" href="#about">Profile</a></li>
-									<li class="nav-item"><a class="nav-link" href="#features">Event</a></li>
-								</ul>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<div class="col-12 col-lg-2 pull-left">
-									<div class="sing-up-button d-none d-lg-block pull-left">
-										<a href="Signup.jsp">Signup</a>
-									</div>
-								</div>
-								<div class="col-12 col-lg-2 pull-left">
-									<div class="sing-up-button d-none d-lg-block pull-left">
-										<a href="Login.jsp">Login</a>
-									</div>
-								</div>
+	<div class="container">
+		<jsp:include page="header.jsp" />
+	</div>
+	<div>
+	
+	
+	
+	
+	</div>
+	<div class="container">
+		<jsp:include page="footer.jsp" />
+	</div>
 
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-	</header>
-	<section class="wellcome_area clearfix" id="home">
-		<div class="container h-100">
-			<div class="row h-100 align-items-center">
-				<div class="col-12 col-md"></div>
-			</div>
-		</div>
-		</div>
-	</section>
 </body>
 </html>

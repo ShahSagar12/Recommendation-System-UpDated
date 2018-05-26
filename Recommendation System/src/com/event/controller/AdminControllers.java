@@ -2,6 +2,7 @@ package com.event.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,10 +12,8 @@ import com.event.serviceImpl.AdminServiceImpl;
 
 
 
-/**
- * Servlet implementation class AdminControllers
- */
 
+@WebServlet("/inputAdmin")
 public class AdminControllers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

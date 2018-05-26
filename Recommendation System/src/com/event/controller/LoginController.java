@@ -1,6 +1,8 @@
 package com.event.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,31 +37,22 @@ public class LoginController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		User user=new User();
-		Admin admin=new Admin();
+		
 		user.setEmailAddress(request.getParameter("emailAddress"));
 		user.setPassword(request.getParameter("password"));
 		UserService userService=new UserServiceImpl();
 
-
-		admin.setEmailAddress(request.getParameter(""));
-		admin.setPassword(request.getParameter(""));
-		AdminService adminService=new AdminServiceImpl();
-		int ida=adminService.checkAuthenticate(admin);
+		
 
 		int id=userService.checkAuthenticate(user);
 		if(id>0) {
 			HttpSession session=request.getSession();
 			session.setAttribute("id", id);
 			session.setAttribute("emailAddress", user.getEmailAddress());
+			response.sendRedirect("Home.jsp");
 		}else {
-			if(ida>0) {
-				HttpSession session=request.getSession();
-				session.setAttribute("id", ida);
-				session.setAttribute("emailAddress", admin.getEmailAddress());
-				
-			}else {
-		response.sendRedirect("default.jsp?err=3");
-			}}
+			response.sendRedirect("default.jsp?err=3");
+			}
 	}
 
 }

@@ -12,7 +12,7 @@ import com.event.service.UserService;
 import com.event.serviceImpl.UserServiceImpl;
 
 
-@WebServlet("/UserController")
+@WebServlet("/inputUser")
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
