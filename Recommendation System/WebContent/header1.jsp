@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>header</title>
+<title>headerhome</title>
 <link href="Assets/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css">
 <script src="Assets/js/jquery-2.2.4.min.js" /></script>
@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="row">
 	
-		</div>
+			
 
 
 
@@ -51,7 +51,7 @@
 					id="bs-example-navbar-collapse-1">
 					<div class="col-md-9">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="default.jsp">Event<span
+							<li class="active"><a href="ViewEvent.jsp">Event<span
 									class="sr-only">(current)</span></a></li>
 							<li><a href="Home.jsp">Home</a></li>
 							<li><a href="Profile.jsp">Profile</a></li>
@@ -60,19 +60,10 @@
 						</ul>
 					</div>
 
-					<div class="col-md-1" class="container-fluid">
-
-						<button type="button" class="btn btn-info "
-							data-toggle="modal" data-target="#myModal">Login</button>
-
-
-
-
-
-					</div>
+					
 					<div class="col-md-1">
 						<button class="btn btn-default" type="button" class="form-control">
-							Signup</button>
+							Signout</button>
 					</div>
 				</div>
 
@@ -85,54 +76,7 @@
 
 	</nav>
 	</div>
-	
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog">
-
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Login</h4>
-						</div>
-						<div class="modal-body">
-							<div class="container py-5">
-								<div class="row">
-									<div class="col-md-12">
-							
-										<div class="row">
-											<div class="col-md-6 mx-auto">
-
-												<!-- form card login -->
-												<div class="card rounded-0">
-													
-													<div class="card-body">
-														<jsp:include page="Login.jsp"/>
-														
-													</div>
-													<!--/card-block-->
-												</div>
-												<!-- /form card login -->
-
-											</div>
-
-
-										</div>
-										<!--/row-->
-
-									</div>
-									<!--/col-->
-								</div>
-								<!--/row-->
-							</div>
-							<!--/container-->
-						</div>
-					</div>
-
-				</div>
-
-			</div>
+	</div>
 	
 
 

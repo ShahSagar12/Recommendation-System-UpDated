@@ -18,7 +18,7 @@ import com.event.serviceImpl.AdminServiceImpl;
 import com.event.serviceImpl.UserServiceImpl;
 
 
-@WebServlet("/Login")
+@WebServlet("/loginUser")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,15 +36,11 @@ public class LoginController extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User user=new User();
-		
+		User user=new User();			
 		user.setEmailAddress(request.getParameter("emailAddress"));
 		user.setPassword(request.getParameter("password"));
 		UserService userService=new UserServiceImpl();
-
-		
-
-		int id=userService.checkAuthenticate(user);
+		int id=userService.checkAuthenticate(user);		
 		if(id>0) {
 			HttpSession session=request.getSession();
 			session.setAttribute("id", id);

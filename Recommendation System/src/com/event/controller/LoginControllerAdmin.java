@@ -17,7 +17,7 @@ import com.event.serviceImpl.AdminServiceImpl;
 /**
  * Servlet implementation class LoginControllerAdmin
  */
-@WebServlet("/LoginControllerAdmin")
+@WebServlet("/loginAdmin")
 public class LoginControllerAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

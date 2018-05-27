@@ -44,10 +44,7 @@
 <url-pattern>/inputAdmin</url-pattern>
 </servlet-mapping>
 
-<servlet-mapping>
-<servlet-name>UserController</servlet-name>
-<url-pattern>/inputUser</url-pattern>
-</servlet-mapping>
+
 
 <servlet-mapping>
 <servlet-name>UserController</servlet-name>
