@@ -13,9 +13,7 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row">
-	
-		</div>
+		<div class="row"></div>
 
 
 
@@ -51,89 +49,108 @@
 					id="bs-example-navbar-collapse-1">
 					<div class="col-md-9">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="default.jsp">Event<span
-									class="sr-only">(current)</span></a></li>
-							<li><a href="Home.jsp">Home</a></li>
+							<li class="active"><a href="Home.jsp">
+									<button type="button" class="btn btn-info">Event</button><span
+									class="sr-only">(current)</span>
+							</a></li>
+							<li><a href="Home.jsp" >Home</a></li>
 							<li><a href="Profile.jsp">Profile</a></li>
-							<li><a href="message.jsp">Message</a></li>
+							<li><a href="Message.jsp">Message</a></li>
 
 						</ul>
 					</div>
 
 					<div class="col-md-1" class="container-fluid">
 
-						<button type="button" class="btn btn-info "
-							data-toggle="modal" data-target="#myModal">Login</button>
-
-
+						<button type="button" class="btn btn-info " data-toggle="modal"
+							data-target="#myModal">Login</button>
 
 
 
 					</div>
 					<div class="col-md-1">
 						<button class="btn btn-default" type="button" class="form-control">
-							Signup</button>
+							<a href="Registration.jsp">Signup</a>
+						</button>
 					</div>
 				</div>
 
 			</div>
-	
 
-	
 
-	<!-- /.container-fluid -->
 
-	</nav>
+
+			<!-- /.container-fluid -->
+
+		</nav>
 	</div>
-	
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" role="dialog">
-				<div class="modal-dialog">
 
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Login</h4>
-						</div>
-						<div class="modal-body">
-							<div class="container py-5">
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Login</h4>
+				</div>
+				<div class="modal-body">
+					<div class="container py-5">
+						<div class="row">
+							<div class="col-md-12">
+
 								<div class="row">
-									<div class="col-md-12">
-							
-										<div class="row">
-											<div class="col-md-6 mx-auto">
+									<div class="col-md-6 mx-auto">
 
-												<!-- form card login -->
-												<div class="card rounded-0">
-													
-													<div class="card-body">
-														<jsp:include page="Login.jsp"/>
-														
-													</div>
-													<!--/card-block-->
-												</div>
-												<!-- /form card login -->
+										<!-- form card login -->
+										<div class="card rounded-0">
+
+											<div class="card-body">
+												<jsp:include page="Login.jsp" />
 
 											</div>
-
-
+											<!--/card-block-->
 										</div>
-										<!--/row-->
+										<!-- /form card login -->
 
 									</div>
-									<!--/col-->
+
+
 								</div>
 								<!--/row-->
-							</div>
-							<!--/container-->
-						</div>
-					</div>
 
+							</div>
+							<!--/col-->
+						</div>
+						<!--/row-->
+					</div>
+					<!--/container-->
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- Modal Message -->
+	<div class="modal fade" id="myModal1" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title" class="alert alert-warning">
+						<strong>Warning!</strong> PLZ,Login First
+					</h4>
 				</div>
 
 			</div>
-	
+
+		</div>
+
+	</div>
 
 
 </body>
