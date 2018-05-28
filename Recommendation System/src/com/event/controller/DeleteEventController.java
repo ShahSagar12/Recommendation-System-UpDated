@@ -7,10 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.event.service.EventService;
+import com.event.serviceImpl.EventServiceImpl;
+
+
 /**
  * Servlet implementation class DeleteEventController
  */
-@WebServlet("/DeleteEventController")
+@WebServlet("/DeleteEvent")
 public class DeleteEventController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,8 +38,13 @@ public class DeleteEventController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		Integer id = Integer.parseInt(request.getParameter("eventId"));
+		EventService eventService = new EventServiceImpl();
+		if(eventService.delete(id)>0){
+			response.sendRedirect("ViewEvent.jsp");
+		}else{
+			response.sendRedirect("delete.jsp?id="+id);
+		}
 	}
 
 }

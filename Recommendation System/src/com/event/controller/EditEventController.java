@@ -7,6 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.event.model.Event;
+import com.event.service.EventService;
+import com.event.serviceImpl.EventServiceImpl;
+
+
+
 /**
  * Servlet implementation class EditEventController
  */
@@ -34,8 +40,16 @@ public class EditEventController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		Event event = new Event();
+		event.setId(Integer.parseInt(request.getParameter("eventId")));
+		event.setEventName(request.getParameter("eventName"));
+		event.setStatus(1);
+		EventService  blogPostService = new EventServiceImpl();
+		if(blogPostService.update(event)>0){
+			response.sendRedirect("ViewEvent.jsp");
+		}else{
+			response.sendRedirect("edit.jsp?id="+event.getId());
+		}
 	}
 
 }
