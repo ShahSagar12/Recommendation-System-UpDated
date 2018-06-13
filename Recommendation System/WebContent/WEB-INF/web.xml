@@ -55,7 +55,7 @@
 
 <servlet-mapping>
 <servlet-name>LogoutController</servlet-name>
-<url-pattern>/logout</url-pattern>
+<url-pattern>/Logout</url-pattern>
 </servlet-mapping>
 
 <servlet-mapping>

@@ -10,4 +10,7 @@ public interface UserDAO {
 	String getuserAddress(int id);
 	String getuserFaculty(int id);
 	String getusersemester(int id);
+	String getuserdob(int id);
+	String getusersex(int id);
+	String getuseremailAddress(int id);
 }

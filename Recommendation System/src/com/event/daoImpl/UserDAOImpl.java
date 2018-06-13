@@ -67,7 +67,7 @@ public class UserDAOImpl implements UserDAO{
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next()) {
 				userName=rs.getString("firstName");
-				userName+=""+rs.getString("lastName");
+				userName+=" "+rs.getString("lastName");
 			}
 		} catch (Exception e) {
 			System.out.println("ERROR: getting username"+e);
@@ -109,7 +109,7 @@ public class UserDAOImpl implements UserDAO{
 
 			}
 		} catch (Exception e) {
-			System.out.println("ERROR: getting username"+e);
+			System.out.println("ERROR: getting userfaculty"+e);
 		}
 
 		return userFaculty;
@@ -125,14 +125,32 @@ public class UserDAOImpl implements UserDAO{
 			preparedStatement.setInt(1, id);
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next()) {
-				userSemester=rs.getString("firstName");
+				userSemester=rs.getString("semester");
 
 			}
 		} catch (Exception e) {
-			System.out.println("ERROR: getting username"+e);
+			System.out.println("ERROR: getting usersemester"+e);
 		}
 
 		return userSemester;
+	}
+
+	@Override
+	public String getuserdob(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getusersex(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getuseremailAddress(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	}

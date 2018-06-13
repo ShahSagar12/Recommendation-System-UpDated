@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%
-	if (session.getAttribute("ida") == null) {
+	if (session.getAttribute("id") == null) {
 		response.sendRedirect("default.jsp");
 	}
 %>
@@ -36,33 +36,34 @@
 						<form role="form" method="post">
 
 							<div class="form-group">
-								<input type="text" name="eventName" id="eventName"
+								Event Name:<input type="text" name="eventName" id="eventName"
 									class="form-control input-sm" placeholder="Name of Event">
 							</div>
 
-							<%-- <div class="row">
+							<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-7">
 			    					<div class="form-group">
-			    						<input type="date" name="eventDate" id="eventDate" class="form-control input-sm" placeholder="Date of Event">
+			    					Event Date:<input type="date" name="eventDate" id="eventDate" class="form-control input-sm" placeholder="Date of Event">
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-5">
 			    					<div class="form-group">
-			    						<input type="time" name="eventTime" id="eventTime" class="form-control input-sm" placeholder="Time of Event">
+			    					Event Time:<input type="time" name="eventTime" id="eventTime" class="form-control input-sm" placeholder="Time of Event">
 			    					</div>
 			    				</div>
-			    			</div>   --%>
-							<div class="form-group">
+			    			</div> 
+			    			<div class="form-group">
 
-								<textarea name="eventNotice" id="eventNotice"
-									class="form-control input-sm" placeholder="Notices:" row="5"></textarea>
-							</div>
-							<div class="form-group">
-
-								<input type="text" name="eventAddress" id="eventAddress"
+								Event Address:<input type="text" name="eventAddress" id="eventAddress"
 									class="form-control input-sm" placeholder="Address of Event"
 									row="5" />
+							</div>  
+							<div class="form-group">
+
+								Event Notice:<textarea name="eventNotice" id="eventNotice"
+									class="form-control input-sm" placeholder="Notices:" row="10"></textarea>
 							</div>
+							
 
 
 							<input type="submit" value="Save Event" class=btn btn-info

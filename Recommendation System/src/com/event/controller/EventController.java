@@ -1,7 +1,11 @@
 package com.event.controller;
 
 import java.io.IOException;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Calendar;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,18 +46,29 @@ public class EventController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Date dd=new Date();
+		
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+		SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+		String date=simpleDateFormat.format(dd);
+		String time=timeFormat.format(dd);
 		Event event = new Event();
-		String eventName=request.getParameter("eventName");
-		System.out.println("Event Name"+eventName);
-//		HttpSession session = request.getSession();
-//		String id =session.getAttribute("id").toString();
-//		System.out.println(""+Integer.parseInt(id));
-//		event.setUserId(Integer.parseInt(id));
+		
+		
+		HttpSession session = request.getSession();
+		String id =session.getAttribute("id").toString();
+		String proposedDate=request.getParameter("eventDate").toString();
+		String proposedTime=request.getParameter("eventTime").toString();
+		
+		event.setUserId(Integer.parseInt(id));
 		event.setEventName(request.getParameter("eventName"));
 		event.setEventAddress(request.getParameter("eventAddress"));
+		event.setProposedDate(proposedDate);;
+		event.setProposedTime(proposedTime);
 		event.setEventNotice(request.getParameter("eventNotice"));
-		event.setEventdate(new Date().toString());
-		event.setEventTime((int)new Date().getTime());
+		event.setEventdate(date);
+		
+		event.setEventTime(time);
 		event.setStatus(1);
 		EventService  service = new EventServiceImpl();
 		if(service.save(event)>0){
@@ -62,5 +77,7 @@ public class EventController extends HttpServlet {
 			response.sendRedirect("CreateEvent.jsp");
 		}
 	}
+
+	
 
 }

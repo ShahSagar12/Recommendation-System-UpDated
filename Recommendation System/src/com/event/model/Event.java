@@ -4,20 +4,24 @@ public class Event {
 	private int id;
 	private int userId;
 	private String eventName;
+	private String proposedDate;	
+	private String proposedTime;
 	private String eventdate;
-	private int eventTime;
+	private String eventTime;
 	private String eventAddress;
 	private String eventNotice;
 	private int status;
 	public Event() {
 
 	}
-	public Event(int id,int userId, String eventName, String eventdate, int eventTime, String eventAddress, String eventNotice,
+	public Event(int id,int userId, String eventName, String proposedDate, String proposedTime,String eventdate, String eventTime, String eventAddress, String eventNotice,
 			int status) {
 
 		this.id = id;
 		this.userId=userId;
 		this.eventName = eventName;
+		this.proposedDate=proposedDate;
+		this.proposedTime=proposedTime;
 		this.eventdate = eventdate;
 		this.eventTime = eventTime;
 		this.eventAddress = eventAddress;
@@ -26,7 +30,7 @@ public class Event {
 	}
 	@Override
 	public String toString() {
-		return "Event [id=" + id + ",userId=\" + userId + \", eventName=" + eventName + ", eventdate=" + eventdate + ", eventTime=" + eventTime
+		return "Event [id=" + id + ",userId=\" + userId + \", eventName=" + eventName + ", proposedDate=" + proposedDate + ", proposedTime="+ proposedTime +" eventdate=" + eventdate + ", eventTime=" + eventTime
 				+ ", eventAddress=" + eventAddress + ", eventNotice=" + eventNotice + ", status=" + status + "]";
 	}
 	public int getId() {
@@ -50,14 +54,14 @@ public class Event {
 	public String getEventdate() {
 		return eventdate;
 	}
-	public void setEventdate(String eventdate) {
-		this.eventdate = eventdate;
+	public void setEventdate(String string) {
+		this.eventdate = string;
 	}
-	public int getEventTime() {
+	public String getEventTime() {
 		return eventTime;
 	}
-	public void setEventTime(int eventTime) {
-		this.eventTime = eventTime;
+	public void setEventTime(String time) {
+		this.eventTime = time;
 	}
 	public String getEventAddress() {
 		return eventAddress;
@@ -77,5 +81,18 @@ public class Event {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+	public String getProposedDate() {
+		return proposedDate;
+	}
+	public void setProposedDate(String proposedDate) {
+		this.proposedDate = proposedDate;
+	}
+	public String getProposedTime() {
+		return proposedTime;
+	}
+	public void setProposedTime(String proposedTime) {
+		this.proposedTime = proposedTime;
+	}
+	
 
 }

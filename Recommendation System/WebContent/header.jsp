@@ -55,7 +55,7 @@
 							</a></li>
 							<li><a href="Home.jsp" >Home</a></li>
 							<li><a href="Profile.jsp">Profile</a></li>
-							<li><a href="Message.jsp">Message</a></li>
+							
 
 						</ul>
 					</div>

@@ -12,5 +12,12 @@ public interface EventService {
 	int delete(int id);
 	
 	List<Event> getUserByid(int id);
+	String getEventName(int id);
+	String proposedDate(int id);
+	String proposedTime(int id);
+	String getEventDate(int id);
+	String getEventTime(int id);
+	String getEventNotice(int id);
+	String getEventAddress(int id);
 
 }
