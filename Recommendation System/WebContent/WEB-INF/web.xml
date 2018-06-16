@@ -2,6 +2,7 @@
 <element>
 <web-app>
 
+
 <servlet>
 <servlet-name>UserController</servlet-name>
 <servlet-class>com.event.controller.UserController</servlet-class>
@@ -67,9 +68,10 @@
 <servlet-name>LoginController</servlet-name>
 <url-pattern>/loginUser</url-pattern>
 </servlet-mapping>
-
 <welcome-file-list>
 <welcome-file>default.jsp</welcome-file>
 </welcome-file-list>
+
+
 </web-app>
 </element>

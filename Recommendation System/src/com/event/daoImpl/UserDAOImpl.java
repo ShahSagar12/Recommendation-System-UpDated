@@ -137,20 +137,62 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public String getuserdob(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String userdob="";
+		Connection connection=MySqlConnector.connectToDB();
+		String sql="SELECT dob FROM tbl_user WHERE id=?";
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				userdob=rs.getString("dob");
+
+			}
+		} catch (Exception e) {
+			System.out.println("ERROR: getting userdob"+e);
+		}
+
+		return userdob;
 	}
 
 	@Override
 	public String getusersex(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String userSex="";
+		Connection connection=MySqlConnector.connectToDB();
+		String sql="SELECT sex FROM tbl_user WHERE id=?";
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				userSex=rs.getString("semester");
+
+			}
+		} catch (Exception e) {
+			System.out.println("ERROR: getting usersemester"+e);
+		}
+
+		return userSex;
 	}
 
 	@Override
 	public String getuseremailAddress(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String userEmailAddress="";
+		Connection connection=MySqlConnector.connectToDB();
+		String sql="SELECT emailAddress FROM tbl_user WHERE id=?";
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				userEmailAddress=rs.getString("emailAddress");
+
+			}
+		} catch (Exception e) {
+			System.out.println("ERROR: getting usersemester"+e);
+		}
+
+		return userEmailAddress;
 	}
 
 	}

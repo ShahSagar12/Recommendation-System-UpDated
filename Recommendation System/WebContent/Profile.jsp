@@ -16,13 +16,14 @@
 <title>Profile</title>
 <link rel="stylesheet" href="Assets/css/bootstrap.min.css"
 	type="text/css" />
-	<script src="Assets/js/jquery-2.2.4.min.js"/></script>
+<script src="Assets/js/jquery-2.2.4.min.js" /></script>
 <script src="Assets/js/bootstrap.min.js" /></script>
 </head>
-<body><div class="container">
-<jsp:include page="header1.jsp"/>
-</div>
-<%
+<body>
+	<div class="container">
+		<jsp:include page="header1.jsp" />
+	</div>
+	<%
 String id=session.getAttribute("id").toString();
 AdminService adminService=new AdminServiceImpl();
 int ida=Integer.parseInt(id);
@@ -31,26 +32,45 @@ String useraddress=adminService.getuserAddress(ida);
 
 
 
-%>
-<div class="container">
-<div class="form-group">
-      <label class="control-label col-sm-2" >Name:</label>
-      <div class="col-sm-6"><%=username %>
-        
-      </div>
-      <br>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Address:</label>
-      <div class="col-sm-6"><%=useraddress %>       
-        
-      </div>
-    </div>
-    </div>
-    <div class="container">
-    
-    <jsp:include page="footer.jsp"/>
-</div>
 
+%>
+	<div class="container">
+		<div class="form-group">
+			<label class="control-label col-sm-2">Name:</label>
+			<div class="col-sm-6"><%=username %>
+
+			</div>
+			<br>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="pwd">Address:</label>
+			<div class="col-sm-6"><%=useraddress %>
+			</div>
+			<br>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="pwd">DOB</label>
+			<div class="col-sm-6"><%=adminService.getuserdob(ida) %>
+
+			</div>
+			<br>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="pwd">Sex</label>
+			<div class="col-sm-6"><%=adminService.getusersex(ida) %>
+			</div><br>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="pwd">Email Address</label>
+			<div class="col-sm-6"><%=adminService.getuseremailAddress(ida) %>
+
+			</div><br>
+		</div>
+		</div>
+
+		<div class="container">
+
+			<jsp:include page="footer.jsp" />
+		</div>
 </body>
 </html>

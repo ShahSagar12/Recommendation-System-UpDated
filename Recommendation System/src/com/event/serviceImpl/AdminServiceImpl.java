@@ -29,4 +29,22 @@ public class AdminServiceImpl implements AdminService{
 		return adminDAO.getuserAddress(id);
 	}
 
+	@Override
+	public String getuserdob(int id) {
+		// TODO Auto-generated method stub
+		return adminDAO.getuserdob(id);
+	}
+
+	@Override
+	public String getusersex(int id) {
+		
+		return adminDAO.getusersex(id);
+	}
+
+	@Override
+	public String getuseremailAddress(int id) {
+		
+		return adminDAO.getuseremailAddress(id);
+	}
+
 }

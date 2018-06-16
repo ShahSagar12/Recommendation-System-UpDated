@@ -57,7 +57,7 @@
 								<label for="exampleInputUsername">Venue:<%=event.getEventAddress()%></label>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputEmail">Posted Date:<%=event.getEventdate()%></div>
+								<label for="exampleInputEmail">Posted Date:<%=event.getEventdate()%></label></div>
 	
 														<div class="form-group">
 								<label for="telephone">Posted On:<%=event.getEventTime()%></label>
@@ -71,26 +71,7 @@
 								</div>				
 								
 									
-										<ul class="starul">
-										 <div class="form-group ">
-								<label for="description">Rate Us</label>
-								</div>
-											<li><label for="rating_1"><i class="fas fa-star"
-										aria-hidden="true"></i></label><input type="radio" name="rating"
-									value="1" /></li>
-											<li><label for="rating_2"><i class="fas fa-star"
-										aria-hidden="true"></i></label><input type="radio" name="rating"
-									 value="2" /></li>
-											<li><label for="rating_3"><i class="fas fa-star"
-										aria-hidden="true"></i></label><input type="radio" name="rating"
-									 value="3" /></li>
-											<li><label for="rating_4"><i class="fas fa-star"
-										aria-hidden="true"></i></label><input type="radio" name="rating"
-									value="4" /></li>
-											<li><label for="rating_5"><i class="fas fa-star"
-										aria-hidden="true"></i></label><input type="radio" name="rating"
-									value="5" /></li>
-										</ul>
+										
 										</div>
 										
 				</div>		
@@ -101,7 +82,7 @@
 				
 			
 	
-	</form>
+
 	
 	
 	</div>
@@ -112,7 +93,7 @@
 	<%
 			}
 		%>
-	<jsp:include page="footer.jsp" />
+	
 	
 	<script>
 						$('.starul li').on('click', function() {
@@ -122,7 +103,7 @@
 							$(this).prevAll().addClass('secondary-active');
 						})
 					</script>
-</div>
+
 	
 	
 	<div class="container">

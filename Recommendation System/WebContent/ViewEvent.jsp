@@ -1,3 +1,4 @@
+<%@page import="com.event.controller.EventController"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="com.event.daoImpl.EventDAOImpl"%>
@@ -37,6 +38,7 @@
 
 		<%
 			String id = session.getAttribute("id").toString();
+			
 			AdminService userService = new AdminServiceImpl();
 			EventService eventService = new EventServiceImpl();
 			List<Event> allEvent = eventService.list();

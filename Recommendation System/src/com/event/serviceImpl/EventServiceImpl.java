@@ -8,7 +8,7 @@ import com.event.model.Event;
 import com.event.service.EventService;
 
 public class EventServiceImpl implements EventService {
- EventDAO eventDAO=(EventDAO) new EventDAOImpl();
+ EventDAO eventDAO=new EventDAOImpl();
 
 	@Override
 	public int save(Event event) {

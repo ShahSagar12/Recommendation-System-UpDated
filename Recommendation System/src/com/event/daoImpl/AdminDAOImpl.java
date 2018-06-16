@@ -92,6 +92,66 @@ public class AdminDAOImpl implements AdminDAO{
 		}
 		return userAddress;
 	}
+
+	@Override
+	public String getuserdob(int id) {
+		String userdob="";
+		Connection connection=MySqlConnector.connectToDB();
+		String sql="SELECT dob FROM tbl_user WHERE id=?";
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				userdob=rs.getString("dob");
+
+			}
+		} catch (Exception e) {
+			System.out.println("ERROR: getting userdob"+e);
+		}
+
+		return userdob;
+	}
+
+	@Override
+	public String getusersex(int id) {
+		String userSex="";
+		Connection connection=MySqlConnector.connectToDB();
+		String sql="SELECT sex FROM tbl_user WHERE id=?";
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				userSex=rs.getString("sex");
+
+			}
+		} catch (Exception e) {
+			System.out.println("ERROR: getting userdob"+e);
+		}
+
+		return userSex;
+	}
+
+	@Override
+	public String getuseremailAddress(int id) {
+		String userEmailAddress="";
+		Connection connection=MySqlConnector.connectToDB();
+		String sql="SELECT emailAddress FROM tbl_user WHERE id=?";
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				userEmailAddress=rs.getString("emailAddress");
+
+			}
+		} catch (Exception e) {
+			System.out.println("ERROR: getting userdob"+e);
+		}
+
+		return userEmailAddress;
+	}
 	
 
 }
