@@ -31,7 +31,7 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public String getuserdob(int id) {
-		// TODO Auto-generated method stub
+		
 		return adminDAO.getuserdob(id);
 	}
 

@@ -62,41 +62,44 @@ input[type="radio"] {
 </head>
 <body>
 	<%
-		String id=session.getAttribute("id").toString();
-		String iid=request.getParameter("id").toString();
+		String id = session.getAttribute("id").toString();
+		String iid = request.getParameter("id").toString();
 		AdminService userService = new AdminServiceImpl();
 		EventService eventService = new EventServiceImpl();
 		Event event = new Event();
 	%>
 	<h2 align="center"><%=eventService.getEventName(Integer.parseInt(iid))%></h2>
+	<div class="list-group">
+					
+					<button type="button" class="list-group-item" style="align:center"><%=eventService.getEventNotice(Integer.parseInt(iid))%></button>
+
+				</div>
 
 	<form method="post">
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-3" style="background-color: lavender;">
-				Event Information
-				<div class="list-group">
-					<button type="button" class="list-group-item">
-						Date:<%=eventService.proposedDate(Integer.parseInt(iid))%></button>
-					<button type="button" class="list-group-item">
-						Time:<%=eventService.proposedTime(Integer.parseInt(iid))%></button>
-					<button type="button" class="list-group-item">
-						Posted By:<%=userService.getuserName(Integer.parseInt(id))%></button>
-					<button type="button" class="list-group-item">
-						Posted Date:<%=eventService.getEventDate(Integer.parseInt(iid))%></button>
-					<button type="button" class="list-group-item">
-						Posted Time:<%=eventService.getEventTime(Integer.parseInt(iid))%></button>
-					
+			<div class="col-4">
+				<div class="list-group" id="list-tab" role="tablist">
+					<a class="list-group-item list-group-item-action active"
+						id="list-home-list" data-toggle="list" href="#list-home"
+						role="tab" aria-controls="home">Event Date:<%=eventService.proposedDate(Integer.parseInt(iid))%></a> <a
+						class="list-group-item list-group-item-action"
+						id="list-profile-list" data-toggle="list" href="#list-profile"
+						role="tab" aria-controls="profile">Event Time:<%=eventService.proposedTime(Integer.parseInt(iid))%></a> <a
+						class="list-group-item list-group-item-action"
+						id="list-messages-list" data-toggle="list" href="#list-messages"
+						role="tab" aria-controls="messages">Posted Date:<%=eventService.getEventDate(Integer.parseInt(iid))%></a> <a
+						class="list-group-item list-group-item-action"
+						id="list-settings-list" data-toggle="list" href="#list-settings"
+						role="tab" aria-controls="settings">Posted Time:<%=eventService.getEventTime(Integer.parseInt(iid))%></a>
+						
 				</div>
 			</div>
-			<div class="col-sm-4" style="background-color: lavenderblush;">
-				<div class="list-group">
-					<button type="button" class="list-group-item">Notice</button>
-					<button type="button" class="list-group-item"><%=eventService.getEventNotice(Integer.parseInt(iid))%></button>
-
-				</div>
-			</div>
-			<div class="col-sm-3" style="background-color: lavender;">
+			
+		</div>
+		
+				
+			
+			
 				Rate us
 				<ul>
 					<li><label for="rating_1"><i class="fas fa-star"
@@ -115,11 +118,18 @@ input[type="radio"] {
 							aria-hidden="true"></i></label><input type="radio" name="rating"
 						id="rating_5" value="5" /></li>
 				</ul>
-			</div>
-			<div class="col-sm-1"></div>
-		</div>
+			
+			
 		<input type="submit" value="submit"
-			onclick="form.action='rating.jsp?id=<%=eventService.get(Integer.parseInt(iid))%>'"
+			onclick="form.action='rate?id=<%=eventService.getEventId(Integer.parseInt(iid))%>'"
+			style="align: center;" />
+			
+			<input type="submit" value="Edit"
+			onclick="form.action='edit.jsp?id=<%=eventService.getEventId(Integer.parseInt(iid))%>'"
+			style="align: center;" />
+			
+			<input type="submit" value="Delete"
+			onclick="form.action='delete.jsp?id=<%=eventService.getEventId(Integer.parseInt(iid))%>'"
 			style="align: center;" />
 
 
@@ -138,13 +148,12 @@ input[type="radio"] {
 
 
 	<script>
-	$('li').on('click',function(){
-		$('li').removeClass('active');
-		$('li').removeClass('secondary-active');
-		$(this).addClass('active');
-		$(this).prevAll().addClass('secondary-active');
-	})
-	
+		$('li').on('click', function() {
+			$('li').removeClass('active');
+			$('li').removeClass('secondary-active');
+			$(this).addClass('active');
+			$(this).prevAll().addClass('secondary-active');
+		})
 	</script>
 
 </body>

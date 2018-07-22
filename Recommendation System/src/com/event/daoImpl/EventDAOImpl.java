@@ -9,7 +9,11 @@ import java.util.List;
 
 import com.event.dao.EventDAO;
 import com.event.dbutils.MySqlConnector;
+import com.event.model.DataSource;
 import com.event.model.Event;
+import com.event.model.RMSE;
+import com.event.model.SlopeOneMatrix;
+import com.event.model.SlopeOneRecommender;
 
 
 
@@ -21,17 +25,17 @@ public class EventDAOImpl implements EventDAO{
 		Connection connection = MySqlConnector.connectToDB();
 		String sql="INSERT INTO tbl_event(userId,eventName,proposedDate,proposedTime,eventDate,eventTime,eventAddress,eventNotice,status) VALUES(?,?,?,?,?,?,?,?,?)";
 		try{
-		PreparedStatement ps= connection.prepareStatement(sql);
-		ps.setInt(1, event.getUserId());
-		ps.setString(2, event.getEventName());
-		ps.setString(3, event.getProposedDate());
-		ps.setString(4, event.getProposedTime());
-		ps.setString(5, (event.getEventdate()));
-		ps.setString(6, event.getEventTime());
-		ps.setString(7,event.getEventAddress());
-		ps.setString(8, event.getEventNotice());
-		ps.setInt(9, event.getStatus());
-		result = ps.executeUpdate();
+			PreparedStatement ps= connection.prepareStatement(sql);
+			ps.setInt(1, event.getUserId());
+			ps.setString(2, event.getEventName());
+			ps.setString(3, event.getProposedDate());
+			ps.setString(4, event.getProposedTime());
+			ps.setString(5, (event.getEventdate()));
+			ps.setString(6, event.getEventTime());
+			ps.setString(7,event.getEventAddress());
+			ps.setString(8, event.getEventNotice());
+			ps.setInt(9, event.getStatus());
+			result = ps.executeUpdate();
 		}catch(Exception e){
 			System.out.println("NEW Event : "+e);
 		}
@@ -85,6 +89,7 @@ public class EventDAOImpl implements EventDAO{
 				event.setEventTime(rs.getString("eventTime"));
 				event.setEventNotice(rs.getString("eventNotice"));
 				event.setStatus(rs.getInt("status"));
+				
 			}
 		}catch(Exception e){
 			System.out.println("Event READING BY USER ID: "+e);
@@ -96,16 +101,24 @@ public class EventDAOImpl implements EventDAO{
 	public int update(Event event) {
 		int result =0;
 		Connection conn = MySqlConnector.connectToDB();
-		String sql="UPDATE tbl_event SET eventName=?,status=? WHERE id=?";
+		String sql="UPDATE tbl_event SET userId=?,eventName=?,proposedDate=?,proposedTime=?,eventDate=?,eventTime=?,eventAddress=?,eventNotice=?,status=? WHERE id=?";
 		try{
-		PreparedStatement ps	 = conn.prepareStatement(sql);
-		ps.setString(1, event.getEventName());		
-		ps.setInt(2, event.getStatus());
-		ps.setInt(3, event.getId());
-		result = ps.executeUpdate();
-		
+			PreparedStatement ps	 = conn.prepareStatement(sql);
+
+			ps.setInt(1, event.getUserId());
+			ps.setString(2, event.getEventName());
+			ps.setString(3, event.getProposedDate());
+			ps.setString(4, event.getProposedTime());
+			ps.setString(5, (event.getEventdate()));
+			ps.setString(6, event.getEventTime());
+			ps.setString(7,event.getEventAddress());
+			ps.setString(8, event.getEventNotice());
+			ps.setInt(9, event.getStatus());
+			ps.setInt(10, event.getId());
+			result = ps.executeUpdate();
+
 		}catch(Exception e){
-			System.out.println("NEW BLOG POST : "+e);
+			System.out.println("Edit event : "+e);
 		}
 		return result;
 	}
@@ -116,10 +129,10 @@ public class EventDAOImpl implements EventDAO{
 		Connection conn = MySqlConnector.connectToDB();
 		String sql="DELETE FROM tbl_event WHERE id=?";
 		try{
-		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setInt(1, id);
-		result = ps.executeUpdate();
-		
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			result = ps.executeUpdate();
+
 		}catch(Exception e){
 			System.out.println("Delete Event : "+e);
 		}
@@ -164,7 +177,7 @@ public class EventDAOImpl implements EventDAO{
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next()) {
 				eventName=rs.getString("eventName");
-				
+
 			}
 		} catch (Exception e) {
 			System.out.println("ERROR: getting eventname"+e);
@@ -184,7 +197,7 @@ public class EventDAOImpl implements EventDAO{
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next()) {
 				proposedDate=rs.getString("proposedDate");
-				
+
 			}
 		} catch (Exception e) {
 			System.out.println("ERROR: getting username"+e);
@@ -204,7 +217,7 @@ public class EventDAOImpl implements EventDAO{
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next()) {
 				proposedTime=rs.getString("proposedTime");
-				
+
 			}
 		} catch (Exception e) {
 			System.out.println("ERROR: getting proposedtime"+e);
@@ -224,7 +237,7 @@ public class EventDAOImpl implements EventDAO{
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next()) {
 				eventDate=rs.getString("eventDate");
-				
+
 			}
 		} catch (Exception e) {
 			System.out.println("ERROR: getting eventDate"+e);
@@ -244,7 +257,7 @@ public class EventDAOImpl implements EventDAO{
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next()) {
 				eventTime=rs.getString("eventTime");
-				
+
 			}
 		} catch (Exception e) {
 			System.out.println("ERROR: getting eventTime"+e);
@@ -264,7 +277,7 @@ public class EventDAOImpl implements EventDAO{
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next()) {
 				eventNotice=rs.getString("eventNotice");
-			
+
 			}
 		} catch (Exception e) {
 			System.out.println("ERROR: getting username"+e);
@@ -284,7 +297,7 @@ public class EventDAOImpl implements EventDAO{
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next()) {
 				eventAddress=rs.getString("eventAddress");
-				
+
 			}
 		} catch (Exception e) {
 			System.out.println("ERROR: getting eventAddress"+e);
@@ -292,8 +305,79 @@ public class EventDAOImpl implements EventDAO{
 
 		return eventAddress;
 	}
+
+	@Override
+	public int getEventId(int id) {
+		int eventId=0;
+		Connection connection=MySqlConnector.connectToDB();
+		String sql="SELECT id FROM tbl_user WHERE id=?";
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				eventId=rs.getInt("id");
+
+			}
+		} catch (Exception e) {
+			System.out.println("ERROR: getting eventAddress"+e);
+		}
+
+		return eventId;
 	}
 
-	
-	
+	@Override
+	public List<Event> recommendedList() {
+		List<Event> recommendedList = new ArrayList<>();
+		Connection conn = MySqlConnector.connectToDB();
+
+		DataSource dataSRC = new DataSource();
+
+		SlopeOneMatrix avgDiff = new SlopeOneMatrix(dataSRC,true) ;
+
+		SlopeOneRecommender slopeOne = new SlopeOneRecommender(dataSRC,true,avgDiff);
+		
+		double prediction=0.0;
+		double rating=0.0;
+			
+		for(int userId:dataSRC.getUser()){		
+			for(int i=1;i<=dataSRC.getNumEvents();i++){		
+				prediction=slopeOne.recommendOne(userId,i);		
+				rating=dataSRC.getRating(userId,i);	
+				
+					String sql="SELECT tbl_event.id,tbl_event.userId,tbl_event.eventName,tbl_event.proposedDate,tbl_event.proposedTime,tbl_event.eventDate,tbl_event.eventTime,tbl_event.eventAddress,tbl_event.eventNotice FROM tbl_event JOIN tbl_rate ON tbl_rate.eventId=tbl_event.id"+ 
+							"WHERE tbl_rate.rate=5";
+					try{
+						PreparedStatement prepareStatement = conn.prepareStatement(sql);
+
+
+						ResultSet rs = prepareStatement.executeQuery(sql);
+						while(rs.next()){
+							Event event = new Event();
+							event.setId(rs.getInt("id"));
+							event.setUserId(rs.getInt("userId"));
+							event.setEventName(rs.getString("eventName"));
+							event.setProposedDate(rs.getString("proposedDate"));
+							event.setProposedTime(rs.getString("proposedTime"));
+							event.setEventdate(rs.getString("eventDate"));
+							event.setEventTime(rs.getString("eventTime"));
+							event.setEventAddress(rs.getString("eventAddress"));
+							event.setEventNotice(rs.getString("eventNotice"));
+							event.setStatus(rs.getInt("status"));
+							recommendedList.add(event);
+						}
+					}catch(Exception e){
+						System.out.println("Event Selection: "+e);
+					}
+
+					
+				}
+			}
+		
+		return recommendedList;
+	}
+}
+
+
+
 

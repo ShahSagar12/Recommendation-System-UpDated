@@ -77,26 +77,7 @@
 								</div>				
 								
 									
-										<ul>
-										 <div class="form-group ">
-								<label for="description">Rate Us</label>
-								</div>
-											<li><label for="rating_1"><i class="fas fa-star"
-													aria-hidden="true"></i></label><input type="radio" name="rating"
-												id="rating_1" value="1" /></li>
-											<li><label for="rating_2"><i class="fas fa-star"
-													aria-hidden="true"></i></label><input type="radio" name="rating"
-												id="rating_2" value="2" /></li>
-											<li><label for="rating_3"><i class="fas fa-star"
-													aria-hidden="true"></i></label><input type="radio" name="rating"
-												id="rating_3" value="3" /></li>
-											<li><label for="rating_4"><i class="fas fa-star"
-													aria-hidden="true"></i></label><input type="radio" name="rating"
-												id="rating_4" value="4" /></li>
-											<li><label for="rating_5"><i class="fas fa-star"
-													aria-hidden="true"></i></label><input type="radio" name="rating"
-												id="rating_5" value="5" /></li>
-										</ul>
+										
 										</div>
 										</div>		
 
@@ -111,7 +92,7 @@
 	
 	</div>
 	<button type="button" class="btn btn-default submit" >
-					<i class="fa fa-paper-plane" aria-hidden="true" ></i><a href="rating.jsp?id=<%=event.getId()%>"> Submit</a>
+					<i class="fa fa-paper-plane" aria-hidden="true" ></i><a href="Eventviewer.jsp?id=<%=event.getId()%>">View Event Details</a>
 				</button>
 	</section>
 	

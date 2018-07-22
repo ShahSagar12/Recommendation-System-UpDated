@@ -8,10 +8,10 @@ public class MySqlConnector {
 		Connection connection=null;
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
-		System.out.println("Driver Loaded");
+		
 		
 		connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/event","root","");
-		System.out.println("Database Connected");
+		
 		
 		}catch(Exception exp) {
 			System.out.println("Error"+exp);
@@ -20,9 +20,5 @@ public class MySqlConnector {
 		return connection;
 	}
 
-	public static void main(String[] args) {
-		connectToDB();
-		
-
-	}
+	
 }

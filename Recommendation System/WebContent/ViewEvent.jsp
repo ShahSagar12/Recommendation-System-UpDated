@@ -22,13 +22,11 @@
 <!--  <link rel="stylesheet" href="Assets/css/new.css" type="text/css" />-->
 <link rel="stylesheet" href="Assets/css/bootstrap.min.css"
 	type="text/css" />
-	<link rel="stylesheet" href="Assets/css/Event.css"
-	type="text/css" />
+<link rel="stylesheet" href="Assets/css/Event.css" type="text/css" />
 <script src="Assets/js/jquery-2.2.4.min.js" /></script>
 <script src="Assets/fonts/fontawesome-all.js" /></script>
 <script src="Assets/js/bootstrap.min.js" /></script>
 <style>
-
 </style>
 
 </head>
@@ -65,42 +63,47 @@
 							<div class="form-group">
 								<label for="exampleInputEmail">Date:<%=event.getProposedDate()%>
 							</div>
-								<div class="form-group">
+							<div class="form-group">
 								<label for="telephone">Time<%=event.getProposedTime()%></label>
 							</div>
 							<div class="form-group">
 								<label for="description">Posted By:<%=userService.getuserName(event.getUserId())%></label>
-								</div>	
 							</div>
-							<div class="col-md-6">	
-						
-						
-							<button type="button" class="btn btn-default submit" >
-					<i class="fa fa-paper-plane" aria-hidden="true" ></i><a href="Eventviewer.jsp?id=<%=event.getId()%>">View Event Details</a>
-				</button>
-	
-				
-								
-									
-										</div>
-										</div>		
+						</div>
+						<div class="col-md-6">
 
-				
-				
-				
-				
-			
-	
-	</form>
-	
-	<%} %>
-	</div>
-	
 
-	
-	
-	
-	<script>
+							<button type="button" class="btn btn-default submit">
+								<i class="fa fa-paper-plane" aria-hidden="true"></i><a
+									href="Eventviewer.jsp?id=<%=event.getId()%>">View Event
+									Details</a>
+							</button>
+							
+							
+
+
+
+
+
+						</div>
+				</div>
+
+
+
+
+
+
+
+				</form>
+
+				<%} %>
+			</div>
+
+
+
+
+
+			<script>
 	
 
 						$('li').on('click', function() {
@@ -110,9 +113,9 @@
 							$(this).prevAll().addClass('secondary-active');
 						})
 					</script>
-					</section>
-</div>
-<!-- <div>
+		</section>
+	</div>
+	<!-- <div>
 <jsp:include page="footer.jsp" />
 </div> -->
 </body>

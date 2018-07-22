@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <element>
 <web-app>
+<servlet>
+<servlet-name>RateController</servlet-name>
+<servlet-class>com.event.controller.RateController</servlet-class>
+</servlet>
 
 
 <servlet>
@@ -68,6 +72,32 @@
 <servlet-name>LoginController</servlet-name>
 <url-pattern>/loginUser</url-pattern>
 </servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>RateController</servlet-name>
+<url-pattern>/rate</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>EditEventController</servlet-name>
+<servlet-class>com.event.controller.EditEventController</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>EditEventController</servlet-name>
+<url-pattern>/edit</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>DeleteEventController</servlet-name>
+<servlet-class>com.event.controller.DeleteEventController</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>DeleteEventController</servlet-name>
+<url-pattern>/Delete</url-pattern>
+</servlet-mapping>
+
 <welcome-file-list>
 <welcome-file>default.jsp</welcome-file>
 </welcome-file-list>

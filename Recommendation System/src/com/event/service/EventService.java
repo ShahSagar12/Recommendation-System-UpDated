@@ -19,5 +19,8 @@ public interface EventService {
 	String getEventTime(int id);
 	String getEventNotice(int id);
 	String getEventAddress(int id);
+	int getEventId(int id);
+	
+	List<Event> recommendedList();
 
 }

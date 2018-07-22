@@ -77,6 +77,7 @@ AdminService adminService=new AdminServiceImpl();
 										class="sr-only">(current)</span></a></li>
 								<li><a href="Home.jsp">Home</a></li>
 								<li><a href="Profile.jsp">Profile</a></li>
+								<li><a href="RecommendedEvents.jsp">Recommended events</a></li>
 
 
 							</ul>

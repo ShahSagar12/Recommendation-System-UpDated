@@ -88,4 +88,16 @@ public class EventServiceImpl implements EventService {
 		return eventDAO.getEventAddress(id);
 	}
 
+	@Override
+	public int getEventId(int id) {
+		
+		return eventDAO.getEventId(id);
+	}
+
+	@Override
+	public List<Event> recommendedList() {
+		
+		return eventDAO.recommendedList();
+	}
+
 }
