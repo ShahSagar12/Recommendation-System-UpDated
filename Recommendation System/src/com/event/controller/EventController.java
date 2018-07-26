@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
 
-
+import javax.mail.Transport;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,14 +15,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.event.model.Event;
+import com.event.model.SendEmail;
 import com.event.service.EventService;
+import com.event.service.UserService;
 import com.event.serviceImpl.EventServiceImpl;
+import com.event.serviceImpl.UserServiceImpl;
+import com.event.model.SMTPAuthenticator;
 
 
 
-/**
- * Servlet implementation class EventController
- */
 @WebServlet("/addEvent")
 public class EventController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -40,6 +41,7 @@ public class EventController extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		Date dd=new Date();
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
@@ -56,6 +58,7 @@ public class EventController extends HttpServlet {
 		
 		event.setUserId(Integer.parseInt(id));
 		event.setEventName(request.getParameter("eventName"));
+		
 		event.setEventAddress(request.getParameter("eventAddress"));
 		event.setProposedDate(proposedDate);;
 		event.setProposedTime(proposedTime);
@@ -66,6 +69,12 @@ public class EventController extends HttpServlet {
 		event.setStatus(1);
 		EventService  service = new EventServiceImpl();
 		if(service.save(event)>0){
+//			UserService userService=new UserServiceImpl();			
+//			String Email=userService.getuserEmailAddress(event.getUserId());
+//			System.out.println("Email Address"+userService.getuserEmailAddress(event.getUserId()));
+//		
+//			SendEmail sendMail=new SendEmail(Email, "INVITATION ", "Come here in time");
+			
 			response.sendRedirect("AdminHome.jsp");
 		}else{
 			response.sendRedirect("CreateEvent.jsp");

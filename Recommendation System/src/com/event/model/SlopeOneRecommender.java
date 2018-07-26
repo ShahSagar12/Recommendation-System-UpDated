@@ -16,7 +16,7 @@ public class SlopeOneRecommender {
 		int weight = 0,weightSum=0,numRatings=0;
 
 
-		for ( int j = 1;j<=dataSRC.getNumEvents();j++){
+		for ( int j = 1;j<=3;j++){
 			if(dataSRC.getRating().get(j).get(u)!=null && i != j ){
 
 				if(isWeighted) {		

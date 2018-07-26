@@ -20,25 +20,31 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public String getuserName(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return userDAO.getuserName(id);
 	}
 
 	@Override
 	public String getuserAddress(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return userDAO.getuserAddress(id);
 	}
 
 	@Override
 	public String getuserFaculty(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return userDAO.getuserFaculty(id);
 	}
 
 	@Override
 	public String getusersemester(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return userDAO.getusersemester(id);
+	}
+
+	@Override
+	public String getuserEmailAddress(int id) {
+		// TODO Auto-generated method stub
+		return userDAO.getuseremailAddress(id);
 	}
 
 }

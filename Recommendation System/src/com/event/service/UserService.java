@@ -9,5 +9,6 @@ public interface UserService {
 	String getuserAddress(int id);
 	String getuserFaculty(int id);
 	String getusersemester(int id);
+	String getuserEmailAddress(int id);
 
 }

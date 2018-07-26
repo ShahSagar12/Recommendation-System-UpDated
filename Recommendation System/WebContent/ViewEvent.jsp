@@ -3,9 +3,12 @@
 	pageEncoding="ISO-8859-1"%>
 <%@page import="com.event.daoImpl.EventDAOImpl"%>
 <%@page import="com.event.model.Event"%>
+<%@page import="com.event.model.SendEmail"%>
 <%@page import="com.event.serviceImpl.EventServiceImpl"%>
 <%@page import="com.event.serviceImpl.AdminServiceImpl"%>
 <%@page import="com.event.service.AdminService"%>
+<%@page import="com.event.service.UserService"%>
+<%@page import="com.event.serviceImpl.UserServiceImpl"%>
 <%@page import="com.event.service.EventService"%>
 <%@page import="java.util.List"%>
 <%
@@ -36,13 +39,19 @@
 
 		<%
 			String id = session.getAttribute("id").toString();
-			
+		UserService service=new UserServiceImpl();
 			AdminService userService = new AdminServiceImpl();
+			UserService userService1=new UserServiceImpl();
 			EventService eventService = new EventServiceImpl();
 			List<Event> allEvent = eventService.list();
+			
 			for (Event event : allEvent) {
 			
 			
+		%>
+		<%
+		
+		
 		%>
 		<section id="contact">
 			<div class="section-content">
@@ -78,8 +87,8 @@
 									href="Eventviewer.jsp?id=<%=event.getId()%>">View Event
 									Details</a>
 							</button>
-							
-							
+
+
 
 
 

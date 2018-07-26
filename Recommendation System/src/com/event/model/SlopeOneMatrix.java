@@ -34,7 +34,7 @@ public class SlopeOneMatrix {
 
 
 
-		for(int i=1;i<=dataSRC.getNumEvents();i++){
+		for(int i=1;i<=8;i++){
 			
 
 			for(int j=1;j<=i;j++){

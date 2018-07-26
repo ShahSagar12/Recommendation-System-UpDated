@@ -162,7 +162,7 @@ public class EventDAOImpl implements EventDAO{
 		}catch(Exception e){
 			System.out.println("Event READING BY USER ID: "+e);
 		}
-
+		
 		return allEventPostByUserId;
 	}
 
@@ -310,7 +310,7 @@ public class EventDAOImpl implements EventDAO{
 	public int getEventId(int id) {
 		int eventId=0;
 		Connection connection=MySqlConnector.connectToDB();
-		String sql="SELECT id FROM tbl_user WHERE id=?";
+		String sql="SELECT id FROM tbl_event WHERE id=?";
 		try {
 			PreparedStatement preparedStatement=connection.prepareStatement(sql);
 			preparedStatement.setInt(1, id);
@@ -320,7 +320,7 @@ public class EventDAOImpl implements EventDAO{
 
 			}
 		} catch (Exception e) {
-			System.out.println("ERROR: getting eventAddress"+e);
+			System.out.println("ERROR: getting eventId"+e);
 		}
 
 		return eventId;
@@ -337,19 +337,20 @@ public class EventDAOImpl implements EventDAO{
 
 		SlopeOneRecommender slopeOne = new SlopeOneRecommender(dataSRC,true,avgDiff);
 		
-		double prediction=0.0;
-		double rating=0.0;
+		double prediction=0;
+		double rating=0;
 			
 		for(int userId:dataSRC.getUser()){		
-			for(int i=1;i<=dataSRC.getNumEvents();i++){		
-				prediction=slopeOne.recommendOne(userId,i);		
+			for(int i=1;i<=3;i++){		
+				 prediction=slopeOne.recommendOne(userId,i);		
 				rating=dataSRC.getRating(userId,i);	
 				
-					String sql="SELECT tbl_event.id,tbl_event.userId,tbl_event.eventName,tbl_event.proposedDate,tbl_event.proposedTime,tbl_event.eventDate,tbl_event.eventTime,tbl_event.eventAddress,tbl_event.eventNotice FROM tbl_event JOIN tbl_rate ON tbl_rate.eventId=tbl_event.id"+ 
-							"WHERE tbl_rate.rate=5";
+				
+					String sql="SELECT tbl_event.id, tbl_event.userId, tbl_event.eventName, tbl_event.proposedDate, tbl_event.proposedTime, tbl_event.eventDate, tbl_event.eventTime, tbl_event.eventAddress, tbl_event.eventNotice FROM tbl_event JOIN tbl_rate ON tbl_rate.eventId=tbl_event.id WHERE tbl_rate.rate=5";
+					System.out.println(rating);
 					try{
 						PreparedStatement prepareStatement = conn.prepareStatement(sql);
-
+					   
 
 						ResultSet rs = prepareStatement.executeQuery(sql);
 						while(rs.next()){
@@ -363,7 +364,7 @@ public class EventDAOImpl implements EventDAO{
 							event.setEventTime(rs.getString("eventTime"));
 							event.setEventAddress(rs.getString("eventAddress"));
 							event.setEventNotice(rs.getString("eventNotice"));
-							event.setStatus(rs.getInt("status"));
+							
 							recommendedList.add(event);
 						}
 					}catch(Exception e){

@@ -15,7 +15,7 @@ public class Recommendation {
 		ArrayList<Double> predictions = new ArrayList <Double>() ;
 		ArrayList<Double> ratings = new ArrayList <Double>() ;		
 		for(int userId:dataSRC.getUser()){		
-			for(int i=1;i<=dataSRC.getNumEvents();i++){		
+			for(int i=1;i<=3;i++){		
 				prediction=slopeOne.recommendOne(userId,i);		
 				rating=dataSRC.getRating(userId,i);		
 			

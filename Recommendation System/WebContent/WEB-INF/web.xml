@@ -5,7 +5,10 @@
 <servlet-name>RateController</servlet-name>
 <servlet-class>com.event.controller.RateController</servlet-class>
 </servlet>
-
+<servlet-mapping>
+<servlet-name>RateController</servlet-name>
+<url-pattern>/rate</url-pattern>
+</servlet-mapping>
 
 <servlet>
 <servlet-name>UserController</servlet-name>
@@ -73,10 +76,7 @@
 <url-pattern>/loginUser</url-pattern>
 </servlet-mapping>
 
-<servlet-mapping>
-<servlet-name>RateController</servlet-name>
-<url-pattern>/rate</url-pattern>
-</servlet-mapping>
+
 
 <servlet>
 <servlet-name>EditEventController</servlet-name>

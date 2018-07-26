@@ -32,47 +32,10 @@ public class DataSource {
 
 
 
-	public int getNumEvents() {
-
-		Connection conn=MySqlConnector.connectToDB();
-		String sql="Select count(*) from tbl_event";
-		try {
-			PreparedStatement preparedStatement=conn.prepareStatement(sql);
-			if(numEvents==-1) {
-				ResultSet rs=preparedStatement.executeQuery();
-				if(rs.next()) {
-					numEvents=rs.getInt(1);
-				}
-			}
-
-		} catch (Exception e) {
-			System.out.println("ERROR:Counting events"+e);
-		}
-		
-		return numEvents;
-	}
+	
 
 
-	public int getNumUsers() {
-
-		Connection conn=MySqlConnector.connectToDB();
-		String sql="Select count(*) from tbl_user";
-		if(numUsers==-1) {
-		try {
-			PreparedStatement preparedStatement=conn.prepareStatement(sql);
-			
-				ResultSet rs=preparedStatement.executeQuery();
-				if(rs.next()) {
-					numUsers=rs.getInt(1);
-				}
-				rs.close();
-			}catch (Exception e) {
-			System.out.println("ERROR:Counting Users"+e);
-		}
-	}
-
-		return numUsers;
-	}
+	
 
 
 
@@ -86,7 +49,7 @@ public class DataSource {
 				PreparedStatement preparedStatement=conn.prepareStatement(sql);
 
 				ResultSet resultSet=preparedStatement.executeQuery();
-				events=new int[getNumEvents()];
+				events=new int[3];
 				int i=0;
 				while(resultSet.next()){
 					events[i]=resultSet.getInt(1);
@@ -113,7 +76,7 @@ public class DataSource {
 				PreparedStatement preparedStatement=conn.prepareStatement(sql);
 
 				ResultSet resultSet=preparedStatement.executeQuery();
-				user=new int[getNumUsers()];
+				user=new int[2];
 				int i=0;
 				while(resultSet.next()){
 					user[i]=resultSet.getInt(1);
